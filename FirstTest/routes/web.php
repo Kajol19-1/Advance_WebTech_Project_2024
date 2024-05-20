@@ -31,6 +31,9 @@ Route::get('/student/edit/{id}/{name}', [StudentController::class, 'edit']);
 Route::post('/student/edit', [StudentController::class,'editSubmit'])->name('student.edit');
 Route::get('/student/delete/{id}/{name}', [StudentController::class,'delete']);
 
+
+Route::get('/student/profile',[StudentController::class,'studentProfile'])->name('student.profile');
+
 //Teacher Routes
 
 Route::get('/teacher/create', [TeacherController::class, 'create'])->name('teacher.create');

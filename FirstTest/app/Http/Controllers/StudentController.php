@@ -82,6 +82,18 @@ class StudentController extends Controller
 
      }
 
+
+
+     public function studentProfile(Request $request)
+     {
+         $students = Student::where('id', '=', $request->id)
+                                 ->select('name','s_id','email','dob','phone','id')
+                                 ->first();
+                                 
+         return view('pages.students.profile')
+                     ->with('student', $students);
+     }
+
      public function edit(Request $request){
         //return $request->id;
         $id =$request->id;
