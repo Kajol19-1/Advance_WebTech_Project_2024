@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,8 @@ Route::post('/student/create', [StudentController::class, 'createSubmit'])->name
 Route::get('/student/list', [StudentController::class, 'list'])->name('student.list');
 Route::get('/student/edit/{id}/{name}', [StudentController::class, 'edit']);
 
+//Teacher Routes
+
+Route::get('/teacher/create', [TeacherController::class, 'create'])->name('teacher.create');
+Route::post('/teacher/create', [TeacherController::class, 'createSubmit'])->name('teacher.create');
+Route::get('/teacher/list', [TeacherController::class, 'list'])->name('teacher.list');
