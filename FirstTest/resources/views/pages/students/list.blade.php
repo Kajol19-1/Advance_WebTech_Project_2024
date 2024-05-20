@@ -20,6 +20,7 @@
     <td>{{$student->email}}</td>
     <td>{{$student->phone}}</td>
     <td><a href="/student/edit/{{$student->id}}/{{$student->name}}">Edit</a></td>
+    <td><a href="/student/delete/{{$student->id}}/{{$student->name}}">Delete</a></td>
     
 </tr>
 @endforeach

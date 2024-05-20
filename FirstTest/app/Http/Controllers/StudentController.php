@@ -86,6 +86,31 @@ class StudentController extends Controller
         //return $request->id;
         $id =$request->id;
         $student= Student::where('id',$id)->first();
-        return $student;
+        //return $student;
+        return view('pages.students.edit')->with('student', $student);
+      
+     }
+
+
+     public function editSubmit(Request $request){
+
+      $var = Student::where('id', $request->id)->first();
+      $var->name = $request->name;
+      $var->s_id = $request->s_id;
+      $var->email = $request->email;
+      $var->phone = $request->phone;
+      $var->dob = $request->dob;
+      $var->save();
+      return redirect()->route('student.list');
+   
+     } 
+
+
+     public function delete(Request $request){
+
+      $var = Student::where('id',$request->id)->first();
+      $var->delete();
+      return redirect()->route('student.list');
+
      }
 }
