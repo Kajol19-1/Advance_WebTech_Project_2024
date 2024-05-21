@@ -14,6 +14,10 @@ class PagesController extends Controller
         return view('pages.contact');
     }
 
+    public function teacherDash(){
+        return view('pages.teachers.teacherDash');
+    }
+
     public function myProfile(){
         $name = "kajol";
         $id = "19-40018-1";
@@ -26,4 +30,6 @@ class PagesController extends Controller
         ->with('names',$names);
     
     }
+
+
 }

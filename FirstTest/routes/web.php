@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\courseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +41,20 @@ Route::get('/student/profile',[StudentController::class,'studentProfile'])->name
 Route::get('/teacher/create', [TeacherController::class, 'create'])->name('teacher.create');
 Route::post('/teacher/create', [TeacherController::class, 'createSubmit'])->name('teacher.create');
 Route::get('/teacher/list', [TeacherController::class, 'list'])->name('teacher.list');
+
+//Login part
+
+Route::get('/login',[loginController::class, 'login'])->name('login');
+Route::post('/login',[loginController::class, 'loginSubmit'])->name('login');
+Route::get('/logout',[loginController::class, 'logout'])->name('logout');
+
+//Teacher Dash
+
+Route::get('/teacher/dash',[PagesController::class, 'teacherDash'])->name('teacherDash')->middleware('validTeacher');
+
+// Teacher course
+
+Route::get('/teacher/courses',[TeacherController::class,'teacherCourses'])->name('teacher.courses');
+
+//course
+Route::get('/courses',[courseController::class,'courseTeacher'])->name('teacher.courses');

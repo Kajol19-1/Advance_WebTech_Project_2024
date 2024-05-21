@@ -8,6 +8,11 @@ use Illuminate\Support\Arr;
 
 class StudentController extends Controller
 {
+
+   public function __construct(){
+      $this->middleware('validTeacher');
+      }
+
     public function create(){
 
         return view('pages.students.create');
